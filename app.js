@@ -1,4 +1,3 @@
-
 const express = require("express");
 const productEn = require("./mail/productEN");
 const partnershipEn = require("./mail/partnershipEn");
@@ -9,6 +8,7 @@ require("dotenv").config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+const PORT = process.env.PORT || 5000;
 app.post("/send-enquiry-product", (req, res) => {
   try {
     const {
@@ -51,7 +51,6 @@ app.post("/send-enquiry-partnership", (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
